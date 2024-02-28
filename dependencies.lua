@@ -7,8 +7,9 @@ dependencies = {
     dependencyInstall = {
         Name = "Script",
         InstallScript = function(temporaryPath, libPath)
-            --FIXME: Recursively call git tool to install automatically from repo!
-            print("Please make shure you have installed the Seesberger/OpenComputers-GUI")
+            libPath = libPath or "/lib/"
+            os.execute("mkdir "..libPath.."FormatModules")--not shure if useless, keeping for redundancy
+            os.execute("cp -r "..temporaryPath.."* "..libPath)
         end
     }
 }
